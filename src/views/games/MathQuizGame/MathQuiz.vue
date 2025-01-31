@@ -59,56 +59,46 @@ const difficulty = ref(route.params.difficulty || "Easy");
 let timer = null;
 
 const generateQuestion = () => {
-    let num1, num2, num3;
+    let expression, result;
 
     switch (difficulty.value) {
         case "Easy":
-            num1 = Math.floor(Math.random() * 50) + 1;
-            num2 = Math.floor(Math.random() * 50) + 1;
-            num3 = Math.floor(Math.random() * 50) + 1;
+          
+            const num1 = Math.floor(Math.random() * 100) + 1;
+            const num2 = Math.floor(Math.random() * 100) + 1;
+            const operations = ["+", "-", "*"];
+            const op = operations[Math.floor(Math.random() * operations.length)];
+            expression = `${num1} ${op} ${num2}`;
+            result = eval(expression);
             break;
+
         case "Medium":
-            num1 = Math.floor(Math.random() * 100) + 1;
-            num2 = Math.floor(Math.random() * 100) + 1;
-            num3 = Math.floor(Math.random() * 100) + 1;
+
+            const numA = Math.floor(Math.random() * 100) + 1;
+            const numB = Math.floor(Math.random() * 100) + 1;
+            const numC = Math.floor(Math.random() * 100) + 1;
+            const ops = ["+", "-", "*"];
+            const op1 = ops[Math.floor(Math.random() * ops.length)];
+            const op2 = ops[Math.floor(Math.random() * ops.length)];
+            expression = `${numA} ${op1} ${numB} ${op2} ${numC}`;
+            result = eval(expression);
             break;
+
         case "Hard":
-            num1 = Math.floor(Math.random() * 200) + 1;
-            num2 = Math.floor(Math.random() * 200) + 1;
-            num3 = Math.floor(Math.random() * 200) + 1;
+         
+            const numX = Math.floor(Math.random() * 100) + 1;
+            const numY = Math.floor(Math.random() * 100) + 1;
+            const numZ = Math.floor(Math.random() * 100) + 1;
+            const hardOps = ["+", "-", "*"];
+            const hardOp1 = hardOps[Math.floor(Math.random() * hardOps.length)];
+            const hardOp2 = hardOps[Math.floor(Math.random() * hardOps.length)];
+            expression = `${numX} ${hardOp1} (${numY} ${hardOp2} ${numZ})`;
+            result = eval(expression);
             break;
     }
 
-    const operations = ["+", "-", "*"];
-    const op1 = operations[Math.floor(Math.random() * operations.length)];
-    const op2 = operations[Math.floor(Math.random() * operations.length)];
-
-    question.value = `${num1} ${op1} ${num2} ${op2} ${num3} = ?`;
-
-    let result;
-    switch (op1) {
-        case "+":
-            result = num1 + num2;
-            break;
-        case "-":
-            result = num1 - num2;
-            break;
-        case "*":
-            result = num1 * num2;
-            break;
-    }
-
-    switch (op2) {
-        case "+":
-            correctAnswer.value = result + num3;
-            break;
-        case "-":
-            correctAnswer.value = result - num3;
-            break;
-        case "*":
-            correctAnswer.value = result * num3;
-            break;
-    }
+    question.value = `${expression} = ?`;
+    correctAnswer.value = result;
 
     // Generate answer options
     const options = [correctAnswer.value];
@@ -120,6 +110,10 @@ const generateQuestion = () => {
     }
     answerOptions.value = shuffleArray(options);
 };
+
+
+
+
 const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
