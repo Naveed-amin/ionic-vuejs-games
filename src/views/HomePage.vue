@@ -10,7 +10,7 @@
     </ion-header>
 
     <ion-content>
-      <ion-card color="primary" @click="$router.push('/math_quiz')" class="professional-card">
+      <ion-card color="primary" @click="$router.push('/math-quiz/difficulty')" class="professional-card">
         <img
           src="https://icons.veryicon.com/png/o/education-technology/icon-summary-of-educational-activities/mathematics-1.png"
           alt="Math Quiz Image" class="card-image" />
