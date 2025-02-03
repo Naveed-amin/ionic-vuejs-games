@@ -3,6 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import MathQuiz from '@/views/games/MathQuizGame/MathQuiz.vue';
 import DifficultySelection from '@/views/games/MathQuizGame/DifficultySelection.vue';
+import Dictionary from '@/views/dictionary/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -29,6 +30,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MathQuizGame',
     component: MathQuiz,
     props: true,
+},
+{
+  path: '/dictionary',
+  name: 'Dictionary',
+  component: Dictionary,
 },
 ]
 
