@@ -4,6 +4,7 @@ import HomePage from '../views/HomePage.vue';
 import MathQuiz from '@/views/games/MathQuizGame/MathQuiz.vue';
 import DifficultySelection from '@/views/games/MathQuizGame/DifficultySelection.vue';
 import Dictionary from '@/views/dictionary/Home.vue';
+import ScientificCalculator from '@/views/math/ScientificCalculator.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -35,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
   path: '/dictionary',
   name: 'Dictionary',
   component: Dictionary,
+},
+{
+  path: '/calculator',
+  name: 'Calculator',
+  component: ScientificCalculator,
 },
 ]
 

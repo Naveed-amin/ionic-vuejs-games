@@ -12,6 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@capacitor/android": "^7.0.1",
     "@capacitor/app": "7.0.0",
     "@capacitor/core": "7.0.1",
     "@capacitor/haptics": "7.0.0",
@@ -23,6 +24,7 @@
     "axios": "^1.7.9",
     "canvas-confetti": "^1.9.3",
     "ionicons": "^7.0.0",
+    "mathjs": "^14.2.0",
     "vue": "^3.3.0",
     "vue-router": "^4.2.0"
   },
